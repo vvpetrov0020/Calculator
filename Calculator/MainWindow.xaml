@@ -1,0 +1,564 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        mc:Ignorable="d"
+        Title="Calculator" Height="500" Width="370"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None">
+
+    <Grid Background="#FFEA5F5C">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="63*"/>
+            <RowDefinition Height="17*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="32*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="35*"/>
+            <ColumnDefinition Width="296*"/>
+            <ColumnDefinition Width="35*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Border CornerRadius="15"
+                Grid.Column="1"
+                Grid.Row="1"
+                Background="White">
+
+            <TextBlock x:Name="tbResult"
+                       FontSize="45"
+                       TextWrapping="NoWrap"
+                       TextAlignment="Right"/>
+            <Border.Effect>
+                <DropShadowEffect></DropShadowEffect>
+            </Border.Effect>
+
+        </Border>
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Margin="0 0 0 0">
+            <Border  
+            Grid.Row="3"
+            Grid.Column="1"
+            Height="50"
+            Width="50"
+            Background="#FF2F4958"
+            CornerRadius="15">
+
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <TextBlock 
+                FontSize="27"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="MC"
+                Foreground="White"/>
+            </Border>
+
+            <Border  
+            Grid.Row="3"
+            Grid.Column="1"
+            Height="50"
+            Width="50"
+            Background="#FF2F4958"
+            CornerRadius="15"
+                Margin="33 0 0 0">
+
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <TextBlock 
+                FontSize="27"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="M+"
+                Foreground="White"/>
+            </Border>
+
+            <Border  
+            Grid.Row="3"
+            Grid.Column="1"
+            Height="50"
+            Width="50"
+            Background="#FF2F4958"
+            CornerRadius="15"
+                Margin="33 0 0 0">
+
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <TextBlock 
+                FontSize="27"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="M-"
+                Foreground="White"/>
+            </Border>
+
+            <Border  
+            Grid.Row="3"
+            Grid.Column="1"
+            Height="50"
+            Width="50"
+            Background="#FF2F4958"
+            CornerRadius="15"
+                Margin="33 0 0 0">
+
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <TextBlock 
+                x:Name="tbRoot"
+                MouseLeftButtonDown="tbRoot_MouseLeftButtonDown"
+                FontSize="27"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="√"
+                Foreground="White"/>
+            </Border>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Margin="0 0 0 0">
+            <Border  
+            Grid.Row="3"
+            Grid.Column="1"
+            Height="50"
+            Width="50"
+            Background="#FF2F4958"
+            CornerRadius="15">
+
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <TextBlock 
+                x:Name="tbClear"
+                IsEnabled="True"
+                MouseLeftButtonDown="tbClear_MouseLeftButtonDown"
+                FontSize="27"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="C"
+                Foreground="White"/>
+            </Border>
+
+            <Border  
+            Grid.Row="3"
+            Grid.Column="1"
+            Height="50"
+            Width="50"
+            Background="#FF2F4958"
+            CornerRadius="15"
+                Margin="33 0 0 0">
+
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <TextBlock
+                x:Name="tbDegree"
+                MouseLeftButtonDown="tbDegree_MouseLeftButtonDown"
+                FontSize="27"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="^"
+                Foreground="White"/>
+            </Border>
+
+            <Border  
+            Grid.Row="3"
+            Grid.Column="1"
+            Height="50"
+            Width="50"
+            Background="#FF2F4958"
+            CornerRadius="15"
+                Margin="33 0 0 0">
+
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <TextBlock
+                x:Name="tbDivision"
+                MouseLeftButtonDown="tbDivision_MouseLeftButtonDown"
+                FontSize="27"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="/"
+                Foreground="White"/>
+            </Border>
+
+            <Border  
+            Grid.Row="3"
+            Grid.Column="1"
+            Height="50"
+            Width="50"
+            Background="#FF2F4958"
+            CornerRadius="15"
+                Margin="33 0 0 0">
+
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <TextBlock
+                x:Name="tbMultiplication"
+                MouseLeftButtonDown="tbMultiplication_MouseLeftButtonDown"
+                FontSize="27"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="*"
+                Foreground="White"/>
+            </Border>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    Margin="0 0 0 0">
+            <Border  
+            Grid.Row="3"
+            Grid.Column="1"
+            Height="50"
+            Width="50"
+            Background="#FF2F4958"
+            CornerRadius="15">
+
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <TextBlock
+                x:Name="tbSeven"
+                MouseLeftButtonDown="tbSeven_MouseLeftButtonDown"
+                FontSize="27"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="7"
+                Foreground="White"/>
+            </Border>
+
+            <Border  
+            Grid.Row="3"
+            Grid.Column="1"
+            Height="50"
+            Width="50"
+            Background="#FF2F4958"
+            CornerRadius="15"
+                Margin="33 0 0 0">
+
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <TextBlock
+                x:Name="tbEight"
+                MouseLeftButtonDown="tbEight_MouseLeftButtonDown"
+                FontSize="27"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="8"
+                Foreground="White"/>
+            </Border>
+
+            <Border  
+            Grid.Row="3"
+            Grid.Column="1"
+            Height="50"
+            Width="50"
+            Background="#FF2F4958"
+            CornerRadius="15"
+                Margin="33 0 0 0">
+
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <TextBlock
+                x:Name="tbNine"
+                MouseLeftButtonDown="tbNine_MouseLeftButtonDown"
+                FontSize="27"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="9"
+                Foreground="White"/>
+            </Border>
+
+            <Border  
+            Grid.Row="3"
+            Grid.Column="1"
+            Height="50"
+            Width="50"
+            Background="#FF2F4958"
+            CornerRadius="15"
+                Margin="33 0 0 0">
+
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <TextBlock
+                Name="tbMinus"
+
+                MouseLeftButtonDown="tbMinus_MouseLeftButtonDown"
+                FontSize="27"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="-"
+                Foreground="White"/>
+            </Border>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="6"
+                    Grid.Column="1"
+                    Margin="0 0 0 0">
+            <Border  
+            Grid.Row="3"
+            Grid.Column="1"
+            Height="50"
+            Width="50"
+            Background="#FF2F4958"
+            CornerRadius="15">
+
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <TextBlock
+                x:Name="tbFour"
+                MouseLeftButtonDown="tbFour_MouseLeftButtonDown"
+                FontSize="27"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Foreground="White"
+                Text="4"/>
+            </Border>
+
+            <Border  
+            Grid.Row="3"
+            Grid.Column="1"
+            Height="50"
+            Width="50"
+            Background="#FF2F4958"
+            CornerRadius="15"
+                Margin="33 0 0 0">
+
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <TextBlock
+                x:Name="tbFive"
+                MouseLeftButtonDown="tbFive_MouseLeftButtonDown"
+                FontSize="27"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Foreground="White"
+                Text="5"/>
+            </Border>
+
+            <Border  
+            Grid.Row="3"
+            Grid.Column="1"
+            Height="50"
+            Width="50"
+            Background="#FF2F4958"
+            CornerRadius="15"
+                Margin="33 0 0 0">
+
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <TextBlock
+                x:Name="tbSix"
+                MouseLeftButtonDown="tbSix_MouseLeftButtonDown"
+                FontSize="27"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Foreground="White"
+                Text="6"/>
+            </Border>
+
+            <Border  
+            Grid.Row="3"
+            Grid.Column="1"
+            Height="50"
+            Width="50"
+            Background="#FF2F4958"
+            CornerRadius="15"
+                Margin="33 0 0 0">
+
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <TextBlock
+                x:Name="tbPlus"
+
+                MouseLeftButtonDown="tbPlus_MouseLeftButtonDown"
+                FontSize="27"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Foreground="White"
+                Text="+"/>
+            </Border>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="7"
+                    Grid.Column="1"
+                    Margin="0 0 0 0">
+            <Border  
+            Grid.Row="3"
+            Grid.Column="1"
+            Height="50"
+            Width="50"
+            Background="#FF2F4958"
+            CornerRadius="15">
+
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <TextBlock
+                x:Name="tbOne"
+                MouseLeftButtonDown="tbOne_MouseLeftButtonDown"
+                FontSize="27"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Foreground="White"
+                Text="1"/>
+            </Border>
+
+            <Border  
+            Grid.Row="3"
+            Grid.Column="1"
+            Height="50"
+            Width="50"
+            Background="#FF2F4958"
+            CornerRadius="15"
+                Margin="33 0 0 0">
+
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <TextBlock
+                x:Name="tbTwo"
+                MouseLeftButtonDown="tbTwo_MouseLeftButtonDown"
+                FontSize="27"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Foreground="White"
+                Text="2"/>
+            </Border>
+
+            <Border  
+            Grid.Row="3"
+            Grid.Column="1"
+            Height="50"
+            Width="50"
+            Background="#FF2F4958"
+            CornerRadius="15"
+                Margin="33 0 0 0">
+
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <TextBlock
+                x:Name="tbThree"
+                MouseLeftButtonDown="tbThree_MouseLeftButtonDown"
+                FontSize="27"
+                HorizontalAlignment="Center"
+                Foreground="White"
+                VerticalAlignment="Center"
+                Text="3"/>
+            </Border>
+
+
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="8"
+                    Grid.Column="1"
+                    Margin="0 0 0 0">
+            <Border  
+            Grid.Row="3"
+            Grid.Column="1"
+            Height="50"
+            Width="130"
+            Background="#FF2F4958"
+            CornerRadius="15" >
+
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <TextBlock
+                x:Name="tbZero"
+                MouseLeftButtonDown="tbZero_MouseLeftButtonDown"
+                FontSize="27"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Foreground="White"
+                Text="0"
+                Width="130"
+                TextAlignment="Center"/>
+            </Border>
+
+
+
+            <Border  
+            Grid.Row="3"
+            Grid.Column="1"
+            Height="50"
+            Width="50"
+            Background="#FF2F4958"
+            CornerRadius="15"
+                Margin="36 0 0 0">
+
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <TextBlock
+                x:Name="tbDot"
+                MouseLeftButtonDown="tbDot_MouseLeftButtonDown"
+                FontSize="27"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Foreground="White"
+                Text="."
+                Width="50"
+                TextAlignment="Center"/>
+            </Border>
+
+            <Border  
+            Width="50"
+            Background="#FF2F4958"
+            CornerRadius="15"
+            Margin="33,-56,0,4.2">
+
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <TextBlock
+                x:Name="tbEqual"
+                MouseLeftButtonDown="tbEqual_MouseLeftButtonDown"
+                FontSize="27"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Foreground="White"
+                Text="="/>
+            </Border>
+
+
+
+        </StackPanel>
+    </Grid>
+
+
+</Window>
